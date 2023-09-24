@@ -6,26 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="container"></div>
+    <div id="container">Not Rendered</div>
 
-    <script
-      crossorigin
-      src="https://unpkg.com/react@18/umd/react.development.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-    ></script>
-    <script>
-        // DOM Manupulation Using JS
-        //   const heading = document.createElement("h1");
-        //   heading.innerHTML = "Hello World from JavaScript";
-        //   const root = document.getElementById("container");
-        //   root.appendChild(heading);
-
-        const heading = React.createElement("h1",{},"from React");
-        const root = ReactDOM.createRoot( document.getElementById("container"));
-        root.render(heading);
+    <script type="module" src="App.js">
+      // DOM Manupulation Using JS
+      //   const heading = document.createElement("h1");
+      //   heading.innerHTML = "Hello World from JavaScript";
+      //   const root = document.getElementById("container");
+      //   root.appendChild(heading);
     </script>
   </body>
 </html>
