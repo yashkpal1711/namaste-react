@@ -7,6 +7,7 @@ const SearchBar = () => {
         type="text"
         className="searchinput"
         placeholder="dont search"
+        value=""
       ></input>
       <button
         type="submit"
