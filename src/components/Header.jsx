@@ -26,9 +26,7 @@ const Header = () => {
     <div>
       <div className="headerContainer">
         <Logo className="left" />
-        <div>
-          <SearchBar className="middle" />
-        </div>
+       
 
         <UserIcon className="right" />
       </div>

@@ -7,7 +7,7 @@ export const data = [
   {
     name: "Om Sweets & Snacks",
     image: "l7llnbfv3rhnp8cgsepo",
-    stars: 4.1,
+    stars: 4.11,
   },
   {
     name: "Mac D",
@@ -25,7 +25,7 @@ export const data = [
     stars: 2.4,
   },
   {
-    name: "biryani blues",
+    name: "biryanim blues",
     image: "85ccae4e3576f9330af102c46ca85395",
     stars: 4.1,
   },

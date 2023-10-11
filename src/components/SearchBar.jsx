@@ -1,19 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({
+  searchedText,
+  setSearchedText,
+  setRestaurants,
+  restaurants,
+}) => {
+  const filterData = (searchedText, restaurants) => {
+    return restaurants.filter((restaurant) =>
+      restaurant.name.includes(searchedText)
+    );
+  };
   return (
     <>
       <input
         type="text"
         className="searchinput"
         placeholder="dont search"
-        value=""
+        value={searchedText}
+        onChange={(e) => {
+          setSearchedText(e.target.value);
+        }}
       ></input>
       <button
         type="submit"
         className="searchButton"
         onClick={() => {
-          window.location.reload();
+          const data = filterData(searchedText, restaurants);
+          setRestaurants(data);
+          console.log(data);
         }}
       >
         Submit
