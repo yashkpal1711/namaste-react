@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const SearchBar = ({
   searchedText,
   setSearchedText,
-  setRestaurants,
-  restaurants,
+  setFilteredRestaurants,
+  filteredRestaurants,
+  allRestaurants,
 }) => {
-  const filterData = (searchedText, restaurants) => {
-    return restaurants.filter((restaurant) =>
-      restaurant.name.includes(searchedText)
+  const filterData = (searchedText, filteredRestaurants) => {
+    return filteredRestaurants.filter((filteredRestaurants) =>
+      filteredRestaurants?.info?.name
+        ?.toLowerCase()
+        ?.includes(searchedText.toLowerCase())
     );
   };
   return (
@@ -26,9 +29,8 @@ const SearchBar = ({
         type="submit"
         className="searchButton"
         onClick={() => {
-          const data = filterData(searchedText, restaurants);
-          setRestaurants(data);
-          console.log(data);
+          const data = filterData(searchedText, allRestaurants);
+          setFilteredRestaurants(data);
         }}
       >
         Submit
