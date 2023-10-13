@@ -1,5 +1,5 @@
-import React from "react";
-import SearchBar from "./SearchBar";
+import React, { useState } from "react";
+import "../App.css";
 
 const Logo = () => (
   <a href="/">
@@ -22,13 +22,42 @@ const UserIcon = () => (
 );
 
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div>
       <div className="headerContainer">
         <Logo className="left" />
-       
 
-        <UserIcon className="right" />
+        <div>
+          <ul className="nav-menu-container">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+            <li>
+              <a href="/">Career</a>
+            </li>
+          </ul>
+        </div>
+        {isLoggedIn ? (
+          <button
+            onClick={() => {
+              setIsLoggedIn(false);
+            }}
+          >
+            Log Out
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setIsLoggedIn(true);
+            }}
+          >
+            Log In
+          </button>
+        )}
       </div>
     </div>
   );
