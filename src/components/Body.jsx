@@ -14,19 +14,27 @@ const Body = () => {
   useEffect(() => {
     getRestaurants();
   }, []);
-  // GET request to SWIGGY API to get restaurant data 
+
+  // GET request to SWIGGY API to get restaurant data
   const getRestaurants = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5011803&lng=77.0338583&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    setAllRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    try {
+      const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5011803&lng=77.0338583&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+      const json = await data.json();
+      setAllRestaurants(
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFilteredRestaurants(
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   const RestaurantCardContainer = () =>
     filteredRestaurants.length === 0 ? (
       <h1>no match found</h1>
