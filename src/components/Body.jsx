@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { data } from "../Config";
 import RestaurantCard from "./RestaurantCard";
 import SearchBar from "./SearchBar";
 import ShimmerCards from "./ShimmerCards";
+
 
 const Body = () => {
   //  We will use allRestaurants to search restaurants from.
@@ -41,7 +43,14 @@ const Body = () => {
     ) : (
       <div className="restaurantCardContainer">
         {filteredRestaurants.map((cardData) => {
-          return <RestaurantCard {...cardData} key={cardData?.info?.id} />;
+          return (
+            <Link
+              to={"/restaurant/" + cardData?.info?.id}
+              key={cardData?.info?.id}
+            >
+              <RestaurantCard {...cardData} />
+            </Link>
+          );
         })}
       </div>
     );
