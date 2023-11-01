@@ -7,11 +7,13 @@ import Error from "./components/Error";
 import AboutUs from "./components/AboutUs";
 import Contact from './components/Contact';
 import RestaurantDetails from "./components/RestaurantDetails";
+import Footer from "./components/Footer";
 
 const App = () => (
   <>
     <Header />
     <Outlet />
+    <Footer />
   </>
 );
 
