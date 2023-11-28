@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouteError } from "react-router-dom";
-import { data } from './../Config';
+import { data } from '../Config';
 
 const Error = () => {
   const err = useRouteError();
@@ -13,6 +13,7 @@ const Error = () => {
       </div>
       <h3>{(err.data)}</h3>
     </>
+    
   );
 };
 
