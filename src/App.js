@@ -9,6 +9,8 @@ import Contact from "./components/Contact";
 import RestaurantDetails from "./components/RestaurantDetails";
 import Footer from "./components/Footer";
 import LogInForm from "./components/LogInForm";
+import Profile from "./components/Profile";
+import SignUpForm from "./components/SignUpForm";
 
 const App = () => (
   <>
@@ -31,6 +33,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs />,
+        children:[{
+          path:"profile",
+          element: <Profile />,
+        }]
       },
       {
         path: "/Contact",
@@ -43,6 +49,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/login",
         element: <LogInForm />,
+      },
+      {
+        path: "/signUp",
+        element: <SignUpForm />,
       },
     ],
   },

@@ -2,14 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Formik, useFormik } from "formik";
 
-
 const validate = (values) => {
   const errors = {};
-  if (!values.fullName) {
-    errors.fullName = "First Name Is Required !";
-  } else if (values.fullName.length > 30) {
-    errors.fullName = "Must be less than 15 chars";
-  }
 
   if (!values.email) {
     errors.email = "Required";
@@ -33,7 +27,6 @@ const validate = (values) => {
 const LogInForm = () => {
   const formik = useFormik({
     initialValues: {
-      fullName: "",
       email: "",
       password: "",
     },
@@ -47,18 +40,6 @@ const LogInForm = () => {
     <div className="LogIn-form-container">
       <h1>Log In</h1>
       <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="fullName">Full Name</label>
-        <br />
-        <input
-          id="fullName"
-          type="text"
-          name="fullName"
-          onChange={formik.handleChange}
-          value={formik.values.fullName}
-        />
-        <br />
-        {formik.errors.fullName ? <div>{formik.errors.fullName}</div> : null}
-        <br />
         <label htmlFor="email">Email</label>
         <br />
         <input
@@ -88,6 +69,15 @@ const LogInForm = () => {
         <Link to={"/ "}>
           <button type="submit">Submit</button>
         </Link>
+        <br />
+        <button
+          style={{
+            color: "black",
+            marginTop: "10px",
+          }}
+        >
+          <Link to={"/signUp"}>Register Here!</Link>
+        </button>
       </form>
     </div>
   );
