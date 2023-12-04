@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import LogInForm from "./components/LogInForm";
 import Profile from "./components/Profile";
 import SignUpForm from "./components/SignUpForm";
+import TodoList from "./components/TodoList";
 
 const App = () => (
   <>
@@ -33,10 +34,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs />,
-        children:[{
-          path:"profile",
-          element: <Profile />,
-        }]
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/Contact",
@@ -53,6 +56,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUpForm />,
+      },
+      {
+        path: "/try",
+        element: <TodoList />,
       },
     ],
   },

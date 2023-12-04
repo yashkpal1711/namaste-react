@@ -2,10 +2,15 @@ import React from "react";
 
 class ProfileClass extends React.Component {
   constructor(props) {
+    // Best place to initiale STATE VARIABLES
     super(props);
     this.state = {
       count: 0,
     };
+  }
+  componentDidMount(){
+    // BEST PLACE TO MAKE AN API CALL
+
   }
   render() {
     return (
