@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { filterData } from "../utils/helper";
 
 const SearchBar = ({
   searchedText,
@@ -7,13 +8,6 @@ const SearchBar = ({
   filteredRestaurants,
   allRestaurants,
 }) => {
-  const filterData = (searchedText, filteredRestaurants) => {
-    return filteredRestaurants.filter((filteredRestaurants) =>
-      filteredRestaurants?.info?.name
-        ?.toLowerCase()
-        ?.includes(searchedText.toLowerCase())
-    );
-  };
   return (
     <>
       <input

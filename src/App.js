@@ -1,10 +1,9 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
-import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
 import RestaurantDetails from "./components/RestaurantDetails";
 import Footer from "./components/Footer";
@@ -12,6 +11,9 @@ import LogInForm from "./components/LogInForm";
 import Profile from "./components/Profile";
 import SignUpForm from "./components/SignUpForm";
 import TodoList from "./components/TodoList";
+import ShimmerCards from "./components/ShimmerCards";
+
+const AboutUs = lazy(() => import("./components/AboutUs"));
 
 const App = () => (
   <>
@@ -33,10 +35,14 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <AboutUs />,
+        element: (
+          <Suspense fallback={<ShimmerCards />}>
+            <AboutUs />
+          </Suspense>
+        ),
         children: [
           {
-            path: "profile",
+            path: "profile", // http://localhost:1234/about/profile
             element: <Profile />,
           },
         ],

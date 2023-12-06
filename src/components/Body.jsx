@@ -4,7 +4,7 @@ import { data } from "../Config";
 import RestaurantCard from "./RestaurantCard";
 import SearchBar from "./SearchBar";
 import ShimmerCards from "./ShimmerCards";
-
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   //  We will use allRestaurants to search restaurants from.
@@ -36,6 +36,11 @@ const Body = () => {
       console.log(error);
     }
   };
+
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h1>🔴No internet connection🔴</h1>;
+  }
 
   const RestaurantCardContainer = () =>
     filteredRestaurants.length === 0 ? (
