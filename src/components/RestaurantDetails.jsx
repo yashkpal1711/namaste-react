@@ -34,6 +34,14 @@ const RestaurantDetails = () => {
             (menuHeading, index) => (
               <li style={{ listStyle: "none" }} key={index}>
                 {menuHeading?.card?.card?.title}
+                <ul>
+                  {/* Add another map for the subitems */}
+                  {restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map(
+                    (menuHeading, index) => (
+                      <li key={index}>{menuHeading?.card?.card?.title}</li>
+                    )
+                  )}
+                </ul>
               </li>
             )
           )}

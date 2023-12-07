@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import Contact from './Contact';
+import Contact from "./Contact";
 
 const Logo = () => (
   <a href="/">
     <img
+      className=""
       src="https://cdn0.iconfinder.com/data/icons/food-beverage-color/25/Foood_Color_Ramen-512.png"
       alt="logo"
-      className="Logo"
     />
   </a>
 );
-
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div>
-      <div className="headerContainer">
+      <div className="flex">
         <Logo className="left" />
 
         <div>
